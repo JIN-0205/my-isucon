@@ -33,3 +33,14 @@
 ```json
 {"pass":true,"score":12280,"success":11189,"fail":0,"messages":[]}
 ```
+
+### Add indexes to posts.created_at and comments.user_id
+- Identified slow queries from MySQL slow query log:
+  - Posts list query with `ORDER BY created_at DESC LIMIT 50` causing large `Rows_examined`
+  - User comment count query with `SELECT COUNT(*) FROM comments WHERE user_id = ?` causing full table scan
+- Added indexes:
+  - `posts(created_at)`
+  - `comments(user_id)`
+- Result:
+```json
+{"pass":true,"score":14091,"success":12766,"fail":0,"messages":[]}
