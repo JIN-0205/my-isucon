@@ -16,7 +16,7 @@
  ```
 
 
-### 2025-12-29
+### Put a index
 - Enabled MySQL slow query log
 - Identified full table scan on `comments`
 - Added indexes:
@@ -25,4 +25,11 @@
 - Result:
 ```json
 {"pass":true,"score":10577,"success":9706,"fail":0,"messages":[]}
+```
+
+### Set Limit posts query
+- add `LIMIT 50` to `posts`
+- Result:
+```json
+{"pass":true,"score":12280,"success":11189,"fail":0,"messages":[]}
 ```
